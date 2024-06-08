@@ -1,5 +1,20 @@
-<div class="content-wrapper" style="min-height: 1148.88px;">
-    <!-- Content Header (Page header) -->
+<?php
+
+if ($admin["perfil"] != "Administrador") {
+
+    echo '<script>
+
+      window.location = "banner";
+
+    </script>';
+
+    return;
+}
+
+?>
+
+<div class="content-wrapper" style="min-height: 717px;">
+
     <section class="content-header">
 
         <div class="container-fluid">
@@ -8,7 +23,7 @@
 
                 <div class="col-sm-6">
 
-                    <h1>Analiticas</h1>
+                    <h1>Analíticas</h1>
 
                 </div>
 
@@ -17,8 +32,7 @@
                     <ol class="breadcrumb float-sm-right">
 
                         <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-
-                        <li class="breadcrumb-item active">Analiticas</li>
+                        <li class="breadcrumb-item active">Analíticas</li>
 
                     </ol>
 
@@ -33,44 +47,83 @@
     <!-- Main content -->
     <section class="content">
 
-        <!-- Default box -->
-        <div class="card card-info card-outline">
+        <div class="container-fluid">
 
-            <div class="card-header">
+            <div class="row">
 
-                <h3 class="card-title">Title</h3>
+                <?php
 
+                include "modulos/top.php";
 
-                <div class="card-tools">
+                ?>
 
-                    <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <div class="col-3">
 
-                        <i class="fas fa-minus"></i></button>
+                    <?php
 
-                    <button type="button" class="btn btn-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    include "modulos/mejorHabitacion.php";
 
-                        <i class="fas fa-times"></i></button>
+                    ?>
+
+                </div>
+
+                <div class="col-3">
+
+                    <?php
+
+                    include "modulos/peorHabitacion.php";
+
+                    ?>
+
+                </div>
+
+                <div class="col-6">
+
+                    <?php
+
+                    include "modulos/ventas.php";
+
+                    ?>
+
+                </div>
+
+                <div class="col-6">
+
+                    <?php
+
+                    include "modulos/calendario.php";
+
+                    ?>
+
+                </div>
+
+                <div class="col-6">
+
+                    <div class="col-12">
+
+                        <?php
+
+                        include "modulos/ultimosUsuarios.php";
+
+                        ?>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <?php
+
+                        include "modulos/ultimasReservas.php";
+
+                        ?>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="card-body">
-
-                Start creating your amazing application!
-
-            </div>
-            <!-- /.card-body -->
-
-            <div class="card-footer">
-                Footer
-
-            </div>
-            <!-- /.card-footer-->
-
         </div>
-        <!-- /.card -->
-
 
     </section>
     <!-- /.content -->

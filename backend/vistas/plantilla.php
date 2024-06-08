@@ -3,8 +3,8 @@ session_start();
 $ruta = ControladorRuta::ctrRuta();
 $rutaBackend = ControladorRuta::ctrRutaBackend();
 
-if(isset($_SESSION["idBackend"])){
-    $admin = ControladorAdministradores::ctrMostrarAdministradores("id",$_SESSION["idBackend"]);
+if (isset($_SESSION["idBackend"])) {
+    $admin = ControladorAdministradores::ctrMostrarAdministradores("id", $_SESSION["idBackend"]);
 }
 
 ?>
@@ -58,8 +58,8 @@ if(isset($_SESSION["idBackend"])){
     <link rel="stylesheet" href="vistas/css/plugins/morris.css">
 
     <!--=====================================
-	VÍNCULOS JAVASCRIPT
-	======================================-->
+VÍNCULOS JAVASCRIPT
+======================================-->
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -72,8 +72,9 @@ if(isset($_SESSION["idBackend"])){
 
     <!-- AdminLTE App -->
     <script src="vistas/js/plugins/adminlte.min.js"></script>
+
     <!-- DataTables 
-	https://datatables.net/-->
+https://datatables.net/-->
     <script src="vistas/js/plugins/jquery.dataTables.min.js"></script>
     <script src="vistas/js/plugins/dataTables.bootstrap4.min.js"></script>
     <script src="vistas/js/plugins/dataTables.responsive.min.js"></script>
@@ -88,7 +89,7 @@ if(isset($_SESSION["idBackend"])){
     <script src="vistas/js/plugins/ckeditor.js"></script>
 
     <!-- bootstrap color picker 
-	https://farbelous.github.io/bootstrap-colorpicker/v2/-->
+https://farbelous.github.io/bootstrap-colorpicker/v2/-->
     <script src="vistas/js/plugins/bootstrap-colorpicker.min.js"></script>
 
     <!-- iCheck -->
@@ -113,49 +114,61 @@ if(isset($_SESSION["idBackend"])){
     <!-- https://morrisjs.github.io/morris.js/ -->
     <script src="vistas/js/plugins/raphael-min.js"></script>
     <script src="vistas/js/plugins/morris.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .fc-today {
+            background: rgba(255, 255, 255, 0) !important;
+        }
+    </style>
 </head>
 <?php
 if (!isset($_SESSION["validarSesionBackend"])) :
     include "paginas/login.php";
 ?>
 
-<?php else: ?>
+<?php else : ?>
 
-<body class="hold-transition sidebar-mini sidebar-collapse">
-    <div class="wrapper">
-        <?php
-        include "paginas/modulos/header.php";
-        include "paginas/modulos/menu.php";
-        /*NAVEGACION DE PAGINAS */
-        if (isset($_GET["pagina"])) {
-            if (
-                $_GET["pagina"] == "inicio" ||
-                $_GET["pagina"] == "administradores" ||
-                $_GET["pagina"] == "banner" ||
-                $_GET["pagina"] == "planes" ||
-                $_GET["pagina"] == "categorias" ||
-                $_GET["pagina"] == "habitaciones" ||
-                $_GET["pagina"] == "reservas" ||
-                $_GET["pagina"] == "testimonios" ||
-                $_GET["pagina"] == "usuarios" ||
-                $_GET["pagina"] == "Recorrido" ||
-                $_GET["pagina"] == "restaurante"||
-                $_GET["pagina"] == "salir" 
-            ) {
-                include "paginas/" . $_GET["pagina"] . ".php";
+    <body class="hold-transition sidebar-mini sidebar-collapse">
+        <div class="wrapper">
+            <?php
+            include "paginas/modulos/header.php";
+            include "paginas/modulos/menu.php";
+            /*NAVEGACION DE PAGINAS */
+            if (isset($_GET["pagina"])) {
+                if (
+                    $_GET["pagina"] == "inicio" ||
+                    $_GET["pagina"] == "administradores" ||
+                    $_GET["pagina"] == "banner" ||
+                    $_GET["pagina"] == "planes" ||
+                    $_GET["pagina"] == "categorias" ||
+                    $_GET["pagina"] == "habitaciones" ||
+                    $_GET["pagina"] == "reservas" ||
+                    $_GET["pagina"] == "testimonios" ||
+                    $_GET["pagina"] == "usuarios" ||
+                    $_GET["pagina"] == "Recorrido" ||
+                    $_GET["pagina"] == "restaurante" ||
+                    $_GET["pagina"] == "salir"
+                ) {
+                    include "paginas/" . $_GET["pagina"] . ".php";
+                } else {
+                    include "paginas/error404.php";
+                }
             } else {
-                include "paginas/error404.php";
+                include "paginas/inicio.php";
             }
-        } else {
-            include "paginas/inicio.php";
-        }
-        include "paginas/modulos/footer.php";
-        ?>
-    </div>
-    <script src="vistas/js/administradores.js"></script>
-    <script src="vistas/js/banner.js"></script>
-    <script src="vistas/js/categorias.js"></script>
-</body>
+            include "paginas/modulos/footer.php";
+            ?>
+        </div>
+        <script src="vistas/js/administradores.js"></script>
+        <script src="vistas/js/banner.js"></script>
+        <script src="vistas/js/categorias.js"></script>
+        <script src="vistas/js/habitaciones.js"></script>
+        <script src="vistas/js/reservas.js"></script>
+    </body>
 <?php endif ?>
+
 </html>

@@ -1,12 +1,45 @@
-$(".tablaCategorias").DataTable({
-    "ajax": {
-        "url": "ajax/tablaCategorias.ajax.php",
-        "type": "POST" // Método de solicitud HTTP
-    },
+//$.ajax({
+//    "url":"ajax/tablaHabitaciones.ajax.php",
+//    success:function(respuesta){
+//        console.log("Respuesta",respuesta);
+//    }
+//})
+
+/*=============================================
+360 GRADOS
+=============================================*/
+
+$(".360Antiguo").pano({
+	img: $(".360Antiguo").attr("back")
+});
+
+/*=============================================
+Plugin ckEditor
+=============================================*/
+
+ClassicEditor.create(document.querySelector('#descripcionHabitacion'), {
+
+    toolbar: ['heading', '|', 'bold', 'italic', 'bulletedList', 'numberedList', '|', 'undo', 'redo']
+
+}).then(function (editor) {
+
+    $(".ck-content").css({ "height": "400px" })
+
+}).catch(function (error) {
+
+    // console.log("error", error);
+
+})
+
+
+
+$(".tablaHabitaciones").DataTable({
+    "ajax": "ajax/tablaHabitaciones.ajax.php",
     "deferRender": true,
     "retrieve": true,
     "processing": true,
     "language": {
+
         "sProcessing": "Procesando...",
         "sLengthMenu": "Mostrar _MENU_ registros",
         "sZeroRecords": "No se encontraron resultados",
@@ -29,21 +62,7 @@ $(".tablaCategorias").DataTable({
             "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
         }
+
     }
-});
 
-
-/* CHECKBOX */
-$(document).ready(function() {
-    // Previsualizar la imagen seleccionada
-    $("input[name='subirImgCategoria']").change(function() {
-        var imagen = this.files[0];
-        if (imagen) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('.previsualizarImgCategoria').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(imagen);
-        }
-    });
-});
+})
