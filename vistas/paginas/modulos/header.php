@@ -32,7 +32,7 @@ HEADER
 
 				<a href="<?php echo $ruta;  ?>">
 				
-					<img src="#" class="img-fluid">
+					<h1>Veranum</h1>
 
 				</a>
 

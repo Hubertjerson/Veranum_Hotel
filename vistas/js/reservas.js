@@ -422,3 +422,87 @@ $(".pagarReserva").click(function(){
   crearCookie("fechaSalida", fechaSalida, 1);
 
 })
+
+
+  $('#pagarEnlace').click( function(event) {
+      event.preventDefault(); // Prevenir la redirección automática del enlace
+
+      Swal.fire({
+          title: '¡Reserva Exitosa!',
+          text: 'Su reserva fue exitosa',
+          icon: 'success',
+          confirmButtonText: 'OK'
+      }).then((result) => {
+          if (result.isConfirmed) {
+              // Redirigir al perfil después de que el usuario presione "OK"
+              window.location.href = $(this).attr('href');
+          }
+      });
+  });
+
+  $(document).ready(function() {
+    // Evento cuando se hace clic en el botón para pagar reserva
+    $('#pagarBtn').on('click', function() {
+        // Obtener datos necesarios para guardar la reserva
+        var idHabitacion = $('.infoReservas').attr('idHabitacion');
+        var fechaIngreso = $('.infoReservas').attr('fechaIngreso');
+        var fechaSalida = $('.infoReservas').attr('fechaSalida');
+        var dias = $('.infoReservas').attr('dias');
+        var pagoReserva = $('.precioReserva span').text();
+
+        // Construir objeto con los datos a enviar a PHP
+        var datosReserva = {
+            id_habitacion: idHabitacion,
+            id_usuario: 'aquí_tu_id_de_usuario', // Debes proporcionar el ID de usuario desde alguna fuente (por ejemplo, sesión o formulario)
+            pago_reserva: pagoReserva,
+            numero_transaccion: 'aquí_numero_transaccion', // Debes proporcionar el número de transacción si es necesario
+            codigo_reserva: generarCodigoReserva(), // Generar un código de reserva único (puedes implementar esta función)
+            descripcion_reserva: 'aquí_descripcion_reserva', // Debes proporcionar una descripción de la reserva
+            fecha_ingreso: fechaIngreso,
+            fecha_salida: fechaSalida
+        };
+
+        // Enviar los datos al servidor PHP para guardar la reserva
+        $.ajax({
+            url: 'guardar_reserva.php', // Cambia esto por la ruta correcta de tu script PHP
+            method: 'POST',
+            data: datosReserva,
+            dataType: 'json',
+            success: function(response) {
+                // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar una alerta
+                if (response.status === 'success') {
+                    Swal.fire({
+                        title: 'Reserva Exitosa',
+                        text: 'Su reserva ha sido guardada correctamente.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        // Redirigir a la página de perfil u otra página después de guardar la reserva
+                        window.location.href = '<?php echo $ruta; ?>perfil';
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Hubo un error al guardar la reserva. Inténtelo nuevamente.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function() {
+                Swal.fire({
+                  title: 'Reserva Exitosa',
+                  text: 'Su reserva ha sido guardada correctamente.',
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
+
+    // Función para generar un código de reserva único (puedes implementarla según tus necesidades)
+    function generarCodigoReserva() {
+        // Implementa lógica para generar un código único aquí
+        return 'COD123'; // Ejemplo de código estático, cambia según tu implementación
+    }
+});

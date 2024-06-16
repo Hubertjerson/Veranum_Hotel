@@ -452,3 +452,59 @@ $(document).on("click", ".eliminarReserva", function () {
 
 })
 
+
+/* PDF  */
+$(document).ready(function() {
+    // Inicializar DataTable
+    $('.tablaReservas').DataTable();
+
+    // Evento clic para el botón Generar PDF
+    $('#btnGenerarPDF').on('click', function() {
+        // Crear instancia de jsPDF
+        var doc = new jsPDF();
+
+        // Título del documento
+        doc.text('Reporte de Reservas', 10, 10);
+
+        // Obtener los datos de la tabla
+        var tableData = $('.tablaReservas').DataTable().rows().data();
+
+        // Definir las columnas y el formato en el PDF
+        var columns = [
+            { title: "#" },
+            { title: "Código" },
+            { title: "Descripción" },
+            { title: "Usuario" },
+            { title: "Pago" },
+            { title: "Transacción" },
+            { title: "Ingreso" },
+            { title: "Salida" }
+        ];
+
+        // Arreglo para los datos del PDF
+        var data = [];
+
+        // Iterar sobre los datos de la tabla y agregar al arreglo
+        tableData.each(function(index) {
+            var rowData = [
+                index + 1,
+                this[1], // Código
+                this[2], // Descripción
+                this[3], // Usuario
+                this[4], // Pago
+                this[5], // Transacción
+                this[6], // Ingreso
+                this[7]  // Salida
+            ];
+            data.push(rowData);
+        });
+
+        // Agregar la tabla al documento PDF
+        doc.autoTable(columns, data, {
+            startY: 20 // Posición inicial en el documento
+        });
+
+        // Guardar o mostrar el PDF en una nueva ventana
+        doc.save('reporte_reservas.pdf');
+    });
+});

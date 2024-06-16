@@ -114,10 +114,13 @@ https://farbelous.github.io/bootstrap-colorpicker/v2/-->
     <!-- https://morrisjs.github.io/morris.js/ -->
     <script src="vistas/js/plugins/raphael-min.js"></script>
     <script src="vistas/js/plugins/morris.min.js"></script>
+
+<!-- Incluir jsPDF -->
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Incluir jsPDF -->
 
     <style>
         .fc-today {
@@ -149,7 +152,7 @@ if (!isset($_SESSION["validarSesionBackend"])) :
                     $_GET["pagina"] == "reservas" ||
                     $_GET["pagina"] == "testimonios" ||
                     $_GET["pagina"] == "usuarios" ||
-                    $_GET["pagina"] == "Recorrido" ||
+                    $_GET["pagina"] == "cocina" ||
                     $_GET["pagina"] == "restaurante" ||
                     $_GET["pagina"] == "salir"
                 ) {
@@ -163,11 +166,15 @@ if (!isset($_SESSION["validarSesionBackend"])) :
             include "paginas/modulos/footer.php";
             ?>
         </div>
+
         <script src="vistas/js/administradores.js"></script>
         <script src="vistas/js/banner.js"></script>
         <script src="vistas/js/categorias.js"></script>
         <script src="vistas/js/habitaciones.js"></script>
         <script src="vistas/js/reservas.js"></script>
+        <script src="vistas/js/testimonios.js"></script>
+        <script src="vistas/js/usuarios.js"></script>
+        <script src="vistas/js/restaurante.js"></script>
     </body>
 <?php endif ?>
 

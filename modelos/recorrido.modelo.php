@@ -16,9 +16,6 @@ Class ModeloRecorrido{
 
 		return $stmt -> fetchAll();
 
-		$stmt -> close();
-
-		$stmt = null;
 
 	}
 

@@ -37,35 +37,39 @@
 
 
 
-                <!-- Botón página inicio -->
+                <?php if ($admin["perfil"] == "Administrador") : ?>
 
-                <li class="nav-item">
+                    <!-- Botón página inicio -->
 
-                    <a href="inicio" class="nav-link">
+                    <li class="nav-item">
 
-                        <i class="nav-icon fas fa-home"></i>
+                        <a href="inicio" class="nav-link">
 
-                        <p>Inicio</p>
+                            <i class="nav-icon fas fa-home"></i>
 
-                    </a>
+                            <p>Inicio</p>
 
-                </li>
+                        </a>
 
-                <!-- Botón página administradores -->
+                    </li>
+
+                    <!-- Botón página administradores -->
 
 
 
-                <li class="nav-item">
+                    <li class="nav-item">
 
-                    <a href="administradores" class="nav-link">
+                        <a href="administradores" class="nav-link">
 
-                        <i class="nav-icon fas fa-users-cog"></i>
+                            <i class="nav-icon fas fa-users-cog"></i>
 
-                        <p>Administradores</p>
+                            <p>Administradores</p>
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
+
+                <?php endif ?>
 
 
                 <!-- Botón página banner -->
@@ -173,11 +177,11 @@
 
                 <li class="nav-item">
 
-                    <a href="recorrido" class="nav-link">
+                    <a href="cocina" class="nav-link">
 
-                        <i class="nav-icon fas fa-bus"></i>
+                        <i class="nav-icon fas fa-utensils"></i>
 
-                        <p>Recorrido</p>
+                        <p>Cocina</p>
 
                     </a>
 

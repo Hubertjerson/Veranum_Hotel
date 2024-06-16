@@ -29,7 +29,7 @@ RESTAURANTE
 						
 						<img src="<?php echo $servidor.$value["img"]; ?>" class="img-fluid w-50 rounded-circle">
 
-						<p class="py-2"><?php echo $value["descripcion"]; ?></p>
+						<p class="py-2"><?php echo substr($value["descripcion"], 0, 110); ?></p>
 
 					</div>
 
@@ -50,7 +50,7 @@ RESTAURANTE
 				
 				<h1 class="mt-4 my-lg-5">RESTAURANTE</h1>
 
-				<p class="p-4 my-lg-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo beatae nemo, saepe iusto, voluptas fuga. Nesciunt tempora nobis quia, officia at corporis sint sunt saepe quod labore hic iusto totam.</p>
+				<p class="p-4 my-lg-5">Comida exquisita para todos nuestros clientes, aprovecha y disfruta de nuestros mejores platos, comida Chilena, Peruana</p>
 
 				<button class="btn btn-warning text-uppercase mb-5 verCarta">Ver la carta</button>
 

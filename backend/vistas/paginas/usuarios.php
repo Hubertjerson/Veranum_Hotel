@@ -1,77 +1,97 @@
-<div class="content-wrapper" style="min-height: 1148.88px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
+<?php 
 
-        <div class="container-fluid">
+  if($admin["perfil"] != "Administrador"){
 
-            <div class="row mb-2">
+    echo '<script>
 
-                <div class="col-sm-6">
+      window.location = "banner";
 
-                    <h1>Usuarios</h1>
+    </script>';
 
-                </div>
+    return;
 
-                <div class="col-sm-6">
+  }
 
-                    <ol class="breadcrumb float-sm-right">
+ ?>
 
-                        <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-
-                        <li class="breadcrumb-item active">Usuarios</li>
-
-                    </ol>
-
-                </div>
-
-            </div>
-
-        </div><!-- /.container-fluid -->
-
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-        <!-- Default box -->
-        <div class="card card-info card-outline">
-
-            <div class="card-header">
-
-                <h3 class="card-title">Title</h3>
-
-
-                <div class="card-tools">
-
-                    <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-
-                        <i class="fas fa-minus"></i></button>
-
-                    <button type="button" class="btn btn-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-
-                        <i class="fas fa-times"></i></button>
-
-                </div>
-
-            </div>
-
-            <div class="card-body">
-
-                Start creating your amazing application!
-
-            </div>
-            <!-- /.card-body -->
-
-            <div class="card-footer">
-                Footer
-
-            </div>
-            <!-- /.card-footer-->
-
+<div class="content-wrapper" style="min-height: 717px;">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Gestor Usuarios</h1>
         </div>
-        <!-- /.card -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+            <li class="breadcrumb-item active">Gestor Usuarios</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
+  <!-- Main content -->
+ <section class="content">
 
-    </section>
-    <!-- /.content -->
+    <div class="card card-primary card-outline">
+
+      <div class="card-body">
+
+        <table class="table table-bordered table-striped dt-responsive tablaUsuarios" width="100%">
+        
+          <thead>
+
+            <tr>
+
+              <th style="width:10px">#</th>
+              <th>Foto</th> 
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Reservas</th> 
+              <th>Testimonios</th>     
+
+            </tr>   
+
+          </thead>
+
+          <tbody>
+
+          <!--   <tr>
+              
+              <td>1</td>
+
+              <td>
+                <img src="vistas/img/usuarios/3/279.png" class="rounded-circle" width="50px">
+              </td> 
+              
+              <td>
+                Juan Fernando Urrego
+              </td> 
+
+              <td>
+                correotutorialesatualcance@gmail.com
+              </td>            
+
+              <td>
+                3
+              </td> 
+
+              <td>
+                1
+              </td> 
+
+            </tr>  -->
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+    <!-- /.card -->
+  </section>
+  <!-- /.content -->
 </div>

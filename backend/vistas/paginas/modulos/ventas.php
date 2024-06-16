@@ -9,40 +9,47 @@ $sumaPagosMes = array();
 
 foreach ($respuesta as $key => $value){
 
-    # Capturamos año y mes
-    $fecha = substr($value["fecha_reserva"],0,7);
+	#Capturamos año y mes
+	$fecha = substr($value["fecha_reserva"],0,7);
 
-    # Introducir las fechas en arrayFechas
-    array_push($arrayFechas, $fecha);
-    
-    # Capturamos las ventas
-    if (!isset($sumaPagosMes[$fecha])) {
-        $sumaPagosMes[$fecha] = 0;
-    }
+	#Introducir las fechas en arrayFechas
+	array_push($arrayFechas, $fecha);
+	
+	#Capturamos las ventas
+	$arrayVentas = array($fecha => $value["pago_reserva"]);
+	#Sumamos los pagos que ocurrieron el mismo mes
 
-    $sumaPagosMes[$fecha] += $value["pago_reserva"];
+	foreach ($arrayVentas as $key2 => $value2) {
+
+		$sumaPagosMes[$key2] += $value2;
+		
+	
+	}
+	
 }
 
 $noRepetirFechas = array_unique($arrayFechas);
 
-?>
+
+ ?>
+
 
 <div class="card bg-gradient-info m-2">
 
-    <div class="card-header no-border">
-        
-        <h3 class="card-title">
-            <i class="fas fa-th mr-1"></i>
-            Línea de Ventas
-        </h3>
+	<div class="card-header no-border">
+		
+		<h3 class="card-title">
+			<i class="fas fa-th mr-1"></i>
+			Línea de Ventas
+		</h3>
 
-    </div>
+	</div>
 
-    <div class="card-body">
-        
-        <div class="chart" id="line-chart-ventas"></div>
+	<div class="card-body">
+		
+		<div class="chart" id="line-chart-ventas"></div>
 
-    </div>
+	</div>
 
 </div>
 
@@ -52,28 +59,29 @@ var line = new Morris.Line({
     element          : 'line-chart-ventas',
     resize           : true,
     data             : [
-
-    <?php
+        <?php
 
     if($noRepetirFechas != null){
 
-         foreach($noRepetirFechas as $key){
+    	 foreach($noRepetirFechas as $key){
 
-            echo "{ y: '".$key."', ventas: ".$sumaPagosMes[$key]." },";
-         }
+    	 	echo "{ y: '".$key."', ventas: ".$sumaPagosMes[$key]." },";
+
+    	 }
 
     }else{
 
-         echo "{ y: '0', ventas: '0' }";
+    	 echo "{ y: '0', ventas: '0' }";
 
     }
 
     ?>
+    
 
     ],
     xkey             : 'y',
     ykeys            : ['ventas'],
-    labels           : ['Ventas'],
+    labels           : ['ventas'],
     lineColors       : ['#efefef'],
     lineWidth        : 2,
     hideHover        : 'auto',
@@ -88,4 +96,55 @@ var line = new Morris.Line({
 
 });
 
+
+
+</script>
+
+<script>
+var ctx = document.getElementById('line-chart-ventas').getContext('2d');
+var lineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: <?php echo $fechas; ?>,
+        datasets: [{
+            label: 'Ventas',
+            data: <?php echo $pagos; ?>,
+            borderColor: '#efefef',
+            backgroundColor: 'rgba(239, 239, 239, 0.1)',
+            borderWidth: 2,
+            pointBackgroundColor: '#efefef',
+            pointBorderColor: '#efefef',
+            pointHoverBackgroundColor: '#efefef',
+            pointHoverBorderColor: '#efefef'
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Fecha'
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Ventas'
+                },
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: '#fff'
+                }
+            }
+        }
+    }
+});
 </script>

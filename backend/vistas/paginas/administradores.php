@@ -1,4 +1,18 @@
+<?php 
 
+  if($admin["perfil"] != "Administrador"){
+
+    echo '<script>
+
+      window.location = "banner";
+
+    </script>';
+
+    return;
+
+  }
+
+ ?>
 
 
 <div class="content-wrapper" style="min-height: 1148.88px;">
@@ -114,6 +128,10 @@
                         <select class="form-control" name="registroPerfil" required>
                             <option value="">Seleccione perfil</option>
                             <option value="Administrador">Administrador</option>
+                            <option value="Editor">Gerente de Hotel</option>
+                            <option value="Editor">Cocina</option>
+                            <option value="Editor">Recepcionista</option>
+                            <option value="Editor">Finanzas y Contabilidad</option>
                             <option value="Editor">Editor</option>
                         </select>
                     </div>

@@ -87,6 +87,8 @@ $servidor = ControladorRuta::ctrServidor();
 	<!-- https://www.jqueryscript.net/other/360-Degree-Panoramic-Image-Viewer-with-jQuery-Pano.html -->
 	<script src="js/plugins/jquery.pano.js"></script>
 
+
+
 	<!-- fullCalendar -->
 	<!-- https://momentjs.com/ -->
 	<script src="js/plugins/moment.js"></script>
@@ -102,6 +104,9 @@ $servidor = ControladorRuta::ctrServidor();
 
 	<script src="https://sdk.mercadopago.com/js/v2"></script>
 
+
+
+	
 
 </head>
 <body>
@@ -178,7 +183,7 @@ if(isset($_GET["pagina"])){
 	LISTA BLANCA DE PÁGINAS INTERNAS
 	=============================================*/
 
-	if($_GET["pagina"] == "reservas" || $_GET["pagina"] == "perfil" || $_GET["pagina"] == "salir"){
+	if($_GET["pagina"] == "reservas" || $_GET["pagina"] == "perfil"|| $_GET["pagina"] == "reporte" || $_GET["pagina"] == "salir"){
 
 		include "paginas/".$_GET["pagina"].".php";
 		
@@ -241,6 +246,13 @@ include "paginas/modulos/footer.php";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- Incluir tu archivo de scripts -->
+    <script src="reservas.js"></script>
 </body>
 
 </html>

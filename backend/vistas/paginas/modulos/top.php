@@ -22,6 +22,7 @@ $totalUsuarios = ControladorUsuarios::ctrMostrarUsuarios(null, null);
 Total Testimonios
 =============================================*/
 
+$totalTestimonios = ControladorTestimonios::ctrMostrarTestimonios(null, null);
 
 ?>
 
@@ -113,5 +114,28 @@ Total Usuarios
 Total Testimonios
 ======================================-->
 
+<div class="col-12 col-sm-6 col-lg-3">
+
+  <div class="small-box bg-secondary">
+
+    <div class="inner">
+
+      <h3><?php echo count($totalTestimonios); ?></h3>
+
+      <p class="text-uppercase">Testimonios</p>
+
+    </div>
+
+    <div class="icon">
+
+      <i class="fas fa-user-check"></i>
+
+    </div>
+
+    <a href="testimonios" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+
+  </div>
+
+</div> 
 
 

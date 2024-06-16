@@ -60,17 +60,13 @@ Class ModeloReservas{
 
 		if($stmt->execute()){
 
-			$id = $connection->lastInsertId();
-
-			return $id;
+			return true;
 
 		}else{
 
 			return "error";
 		
 		}
-
-
 	}
 
 	/*=============================================

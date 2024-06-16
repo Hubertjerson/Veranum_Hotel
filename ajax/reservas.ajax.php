@@ -120,3 +120,5 @@ if(isset($_POST["idHabitaciones"])){
 	$idHabitaciones -> ajaxTraerReservas();
 
 }
+
+
