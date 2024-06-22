@@ -1,6 +1,6 @@
 <?php 
 
-  if($admin["perfil"] != "Administrador"){
+  if($admin["perfil"] != "Administrador" && $admin["perfil"] != "Recepcionista"){
 
     echo '<script>
 

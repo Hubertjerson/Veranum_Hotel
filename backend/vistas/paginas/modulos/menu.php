@@ -69,7 +69,7 @@
 
                     </li>
 
-                <?php endif ?>
+                
 
 
                 <!-- Botón página banner -->
@@ -82,7 +82,10 @@
                         </p>
                     </a>
                 </li>
+                <?php endif ?>
+                
 
+                <?php if ($admin["perfil"] == "Administrador" || $admin["perfil"] == "Recepcionista") : ?>
                 <!-- Botón página planes -->
 
                 <li class="nav-item">
@@ -96,7 +99,7 @@
                     </a>
 
                 </li>
-
+                
                 <!-- Botón página categorías -->
 
                 <li class="nav-item">
@@ -110,9 +113,10 @@
                     </a>
 
                 </li>
-
+                <?php endif ?>
                 <!-- Botón página habitaciones -->
-
+                
+                <?php if ($admin["perfil"] == "Administrador" || $admin["perfil"] == "Recepcionista" || $admin["perfil"] == "Gerente de Hotel") : ?>
                 <li class="nav-item">
 
                     <a href="habitaciones" class="nav-link">
@@ -124,11 +128,11 @@
                     </a>
 
                 </li>
-
+                <?php endif ?>
                 <!-- Botón página reservas -->
 
 
-
+                <?php if ($admin["perfil"] == "Administrador" || $admin["perfil"] == "Recepcionista") : ?>
                 <li class="nav-item">
 
                     <a href="reservas" class="nav-link">
@@ -140,11 +144,11 @@
                     </a>
 
                 </li>
+                <?php endif ?>
 
-
-
+                
                 <!-- Botón página testimonios -->
-
+                <?php if ($admin["perfil"] == "Administrador" || $admin["perfil"] == "Recepcionista") : ?>
                 <li class="nav-item">
 
                     <a href="testimonios" class="nav-link">
@@ -156,7 +160,7 @@
                     </a>
 
                 </li>
-
+                
                 <!-- Botón página usuarios -->
 
 
@@ -171,10 +175,11 @@
                     </a>
 
                 </li>
-
+                <?php endif ?>
 
                 <!-- Botón página recorrido -->
-
+                
+                <?php if ($admin["perfil"] == "Administrador" || $admin["perfil"] == "Cocina") : ?>
                 <li class="nav-item">
 
                     <a href="cocina" class="nav-link">
@@ -200,7 +205,7 @@
                     </a>
 
                 </li>
-
+                <?php endif ?>
             </ul>
 
         </nav>

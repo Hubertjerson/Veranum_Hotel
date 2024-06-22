@@ -1,11 +1,9 @@
 <?php
 
-if ($admin["perfil"] != "Administrador") {
+if ($admin["perfil"] != "Administrador" && $admin["perfil"] != "Recepcionista") {
 
     echo '<script>
-
       window.location = "banner";
-
     </script>';
 
     return;
@@ -59,9 +57,9 @@ if (isset($_GET["not"])) {
 
     <?php
 
-include "modulos/ventas.php";
+    include "modulos/ventas.php";
 
-?>
+    ?>
 
     <!-- Main content -->
     <section class="content">

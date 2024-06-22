@@ -128,10 +128,10 @@
                         <select class="form-control" name="registroPerfil" required>
                             <option value="">Seleccione perfil</option>
                             <option value="Administrador">Administrador</option>
-                            <option value="Editor">Gerente de Hotel</option>
-                            <option value="Editor">Cocina</option>
-                            <option value="Editor">Recepcionista</option>
-                            <option value="Editor">Finanzas y Contabilidad</option>
+                            <option value="Gerente de Hotel">Gerente de Hotel</option>
+                            <option value="Cocina">Cocina</option>
+                            <option value="Recepcionista">Recepcionista</option>
+                            <option value="Finanzas y Contabilidad">Finanzas y Contabilidad</option>
                             <option value="Editor">Editor</option>
                         </select>
                     </div>
@@ -202,6 +202,10 @@
                             <option class="editarPerfilOption"></option>
                             <option value="">Seleccione perfil</option>
                             <option value="Administrador">Administrador</option>
+                            <option value="Gerente de Hotel">Gerente de Hotel</option>
+                            <option value="Cocina">Cocina</option>
+                            <option value="Recepcionista">Recepcionista</option>
+                            <option value="Finanzas y Contabilidad">Finanzas y Contabilidad</option>
                             <option value="Editor">Editor</option>
                         </select>
                     </div>
